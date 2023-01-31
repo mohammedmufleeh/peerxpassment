@@ -1,0 +1,28 @@
+<table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for department in departments %}
+      <tr>
+        <td>{{ department.name }}</td>
+        <td>{{ department.description }}</td>
+        <td>
+          <a href="{% url 'update_department' department.id %}">Update</a>
+          <a href="{% url 'delete_department' department.id %}">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+  {% if messages %}
+  {% for message in messages %}
+  <h3>{{message}}</h3>
+  {% endfor %}
+  {% endif %}
+

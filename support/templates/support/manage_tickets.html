@@ -1,0 +1,30 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Ticket ID</th>
+        <th>Subject</th>
+        <th>Priority</th>
+        <th>Created at</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for ticket in tickets %}
+      <tr>
+        <td>{{ ticket.id }}</td>
+        <td>{{ ticket.subject }}</td>
+        <td>{{ ticket.priority }}</td>
+        <td>{{ ticket.created_at }}</td>
+        <td><a href="{% url 'delete_ticket' ticket.id %}">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  {% if messages %}
+  {% for message in messages %}
+  <h3>{{message}}</h3>
+  {% endfor %}
+  {% endif %}
+
+  
